@@ -21,39 +21,63 @@
   .app h1,
   h2 {
     color: white;
+    text-align: center;
   }
   
   .app .input {
-    display: flex;
+    display: flex ;
     justify-content: center;
     align-items: center;
   }
   
   .app .input {
     margin-top: 0.8em;
+    
     width: 20em;
-    height: 2em;
+    height: 5em;
     background-color: white;
-    display: flex;
+    display: block;
     justify-content: space-between;
     align-items: center;
     border-radius: 6px;
     padding: 5px;
   }
   
-  .app .input input {
+  .app .input .task{
     width: 100%;
-    height: 1.6em;
+    height: 2em;
     border-color: transparent;
     outline-color: transparent;
+    font-weight: bold;
   }
+  .app .input .description{
+    width: 100%;
+    height: 2em;
+    border-color: transparent;
+    outline-color: transparent;
+    
+  }
+  .app .input .dueDate{
+    display: flex;
+    gap: 5px;
+    color: gray;
+    
+    
+  }
+
+  .app .input .dueDate input{
+    border-color: transparent;
+
+  }
+
   
   .app i {
     cursor: pointer;
     font-size: larger;
     font-weight: 900;
     color: grey;
-    margin-right: 5px;
+    margin-right: 15px;
+    margin-left: auto;
   }
   .app .todos {
     display: flex;
@@ -64,7 +88,7 @@
   .app .todos .todo {
     margin-top: 0.8em;
     width: 20em;
-    height: 2em;
+    height: auto;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -76,6 +100,10 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    /* overflow: scroll; */
+  }
+  .toDoDetails span{ 
+color: black;
   }
   
   .app .todos .todo .left p {
@@ -84,4 +112,7 @@
     font-weight: 700;
     font-style: normal;
     color: grey;
+    max-width: 17em;
+    overflow: hidden;
+    
   }
