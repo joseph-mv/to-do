@@ -1,11 +1,43 @@
 
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 function App() {
   const [task, setTask] = useState('')
   const [description,setDescription]=useState('')
   const [dueDate,setDueDate]=useState('')
   const [toDos, setToDOs] = useState([])
+  useEffect(() => {
+    const oldToDos = localStorage.getItem('todos');
+    console.log(oldToDos)
+    if (oldToDos) {
+      setToDOs(JSON.parse(oldToDos));
+      console.log((toDos))
+    }
+    console.log((toDos))
+  }, []); 
+
+ 
+  const handleAdd = () => {
+    const newToDo = { text: task, description, dueDate, status: false, id: Date.now() };
+  
+    setToDOs(prevToDos => {
+      const updatedToDos = [...prevToDos, newToDo];
+  
+
+      localStorage.setItem('todos', JSON.stringify(updatedToDos));
+  
+      return updatedToDos;
+    });
+  };
+
+  const handleDelete=(value)=>{
+    const updatedToDos=toDos.filter((obj) => (obj.id !== value.id))
+    setToDOs(prevToDos=>{
+      localStorage.setItem('todos', JSON.stringify(updatedToDos));
+      return updatedToDos;
+    })
+  }
+  
 
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const today = new Date();
@@ -14,6 +46,8 @@ function App() {
  
   return (
     <div className="app">
+    
+     
       <div className="mainHeading">
         <h1>ToDo List</h1>
       </div>
@@ -29,13 +63,13 @@ function App() {
        <div className='dueDate'>
        <p>Due Date:  </p>
        <input type='date' id='myDate' min={new Date().toISOString().slice(0, 10)} value={dueDate} onChange={(e) => { setDueDate(e.target.value) }}  />
-        <i onClick={() => setToDOs([...toDos, { text: task, description,dueDate, status: false, id: Date.now() }])} className="fas fa-plus"></i>
+        <i onClick={handleAdd} className="fas fa-plus"></i>
       
        </div>
      </div>
       <div className="todos">
         {toDos.map(value => {
-          console.log(value)
+          // console.log(value)
           return (
             <div className="todo">
               <div className="left">
@@ -58,7 +92,7 @@ function App() {
                
               </div>
               <div className="right">
-                <i className="fas fa-times" onClick={(e) => { setToDOs(toDos.filter((obj) => (obj.id !== value.id))) }}></i>
+                <i className="fas fa-times"   onClick={()=>handleDelete(value)}></i>
               </div>
             </div>
           )

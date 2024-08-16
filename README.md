@@ -1,3 +1,59 @@
+## README File
+
+### To-Do App
+
+**Description:**
+
+A simple and intuitive to-do list application built using React, with data persistence via the browser's local storage.
+
+
+**Features:**
+
+- **Add Tasks**: Easily add new tasks to your to-do list.
+- **Edit Tasks**: Edit existing tasks to update their content.
+- **Delete Tasks**: Remove tasks from the list once they're completed or no longer needed.
+- **Persistent Storage**: Tasks are saved in the browser's local storage, so your to-do list is available even after refreshing the page or closing the browser.
+- **Responsive Design**: The app is responsive and works well on both desktop and mobile devices.
+
+
+**Tech Stack:**
+
+* React.js
+
+
+**Installation:**
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/joseph-mv/to-do.git
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+ 
+**Contributing:**
+
+Contributions are welcome! Please follow these guidelines:
+
+1. **Fork the repository.**
+2. **Create a new branch:** `git checkout -b feature/your-feature`
+3. **Make your changes.**
+4. **Commit your changes:** `git commit -m 'Add new feature'`
+5. **Push to your branch:** `git push origin feature/your-feature`
+6. **Create a pull request.**
+
+**License:**
+
+[MIT License]
+
+**Acknowledgements:**
+
+* Thank you to the React.js and TMDB Api communities for their excellent tools and resources.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
